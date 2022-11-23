@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'dochost'}
+    agent any
 
     stages {
         stage('Build') {
