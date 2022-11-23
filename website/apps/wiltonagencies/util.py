@@ -2,7 +2,6 @@ import json
 import uuid
 import bleach
 import secrets
-import requests
 from django.views import View
 from smtplib import SMTPException
 from django.http import HttpResponse, HttpResponseForbidden
