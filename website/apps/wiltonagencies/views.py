@@ -2,8 +2,6 @@ from .util import (
     HttpResponse,
     SMTPException,
     View,
-    secrets,
-    requests,
     bleach,
     json,
     is_ajax,
