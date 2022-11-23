@@ -1,0 +1,26 @@
+<nav style="position: fixed; z-index: 5;" class="navbar navbar-expand-lg container-fluid p-0">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav"
+        aria-expanded="false" aria-controls="#main_nav">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="container collapse navbar-collapse" id="main_nav">
+        <div class="nav mx-auto">
+            <a href="{% url 'wiltonagencies' %}" type="button" class="nav-link nav_font
+                {% if page == "home" %}nav_selected{% endif %}">
+                Home
+            </a>
+            <a href="{% url 'wiltonagencies' 'products' %}" class="nav-link nav_font
+                {% if 'products' in request.path %}nav_selected{% endif %}">
+                Products
+            </a>
+            <a href="{% url 'wiltonagencies' 'about' %}" class="nav-link nav_font
+                {% if 'about' in request.path %}nav_selected{% endif %}">
+                About
+            </a>
+            <a href="{% url 'wiltonagencies' 'contact' %}" class="nav-link nav_font
+                {% if 'contact' in request.path %}nav_selected{% endif %}">
+                Contact Us
+            </a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,125 @@
+<div class="bg-img-contact site" id="page">
+  <!-- Options headline effects: .rotate | .slide | .zoom | .push | .clip -->
+  <section class="hero-section hero-section--image clearfix clip">
+    <div class="hero-section__wrap">
+      <div class="container p-2">
+        <div class="row">
+          <div class="col-lg-6">
+            {% if not blocked %}
+            <h3 class="text-light headings-mono text-center">Send us a message</h3>
+            {% endif %}
+            <div class="text-white d-flex justify-content-center">
+              <div id="status" class="col-md-12 mb-md-0 mb-5 text-white">
+                {% if blocked %}
+                <h5 class="text-dark text-center  headings-mono">We got the messages thanks.
+                  <br>
+                  <br>We will get back to you as soon as possable!</h5>
+                {% else %}
+                <form id="contact-form" class=" shadow bg-obs rounded form-after text-center">
+                  {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6 col-sm-12 p-2">
+                      <div class="md-form mb-0">
+                        <input style="" type="text" id="name" name="name" class="form-control text-dark bg-light"
+                          placeholder="Name" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 p-2">
+                      <div class="md-form mb-0">
+                        <input style="" type="email" id="email" name="email" class="form-control text-dark bg-light"
+                          placeholder="Email" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col-md-12 col-sm-12 p-2">
+                      <div class="md-form mb-0">
+                        <input style="" type="text" id="subject" name="subject" class="form-control text-dark bg-light"
+                          placeholder="Subject" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 p-2">
+                      <div class="md-form">
+                        <textarea style="" type="text" id="message" name="message" rows="6"
+                          class="form-control text-dark bg-light md-textarea text-left"
+                          placeholder="Your Message"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <button id="regs" type="submit" class="form-after btn btn-light text-dark big-font"
+                    style="height: 60px; width: 200px; ">
+                    Send
+                  </button>
+                </form>
+                <div id="form-result" style="display: none" class="text-light">
+                  <h2 id="form-result-text" class=""></h2>
+                  <div id="form-msg" style="display: none">
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                        aria-valuemax="100">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <div class="d-flex text-center align-items-stretch">
+              <div class="info-wrap rounded p-4">
+                <div>
+                  <div class="icon d-flex align-items-center justify-content-center p-2">
+                    <span class="fa fa-map-marker"></span>Address
+                  </div>
+                  <div class="dbox w-100 d-flex align-items-start">
+                    <div class="text pl-3">
+                      <p> 52 Mangold Street Newton Park Gqeberha (Port Elizabeth) Eastern Cape South Africa</p>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="icon p-2">
+                    <span class="fa fa-phone"></span>
+                    Contact
+                  </div>
+                  <div class="text pl-4">
+                    <div class="row">
+                      <div class="col">
+                        <p><span>Wil:</span> <a href="tel://+27828155834">+27 82 815 5834</a></p>
+                      </div>
+                      <div class="col">
+                        <p><span>Tony:</span> <a href="tel://+27828155834">+27 82 800 9169</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="">
+                    <div class="icon p-2">
+                      <span class="fa fa-paper-plane"></span>
+                      Email
+                    </div>
+                    <div class="text pl-3">
+                      <div class="row">
+                        <div class="col">
+                          <p><a href="mailto:will@wiltonagencies.com"><span
+                                class="__cf_email__">will@wiltonagencies.com</span></a></p>
+                        </div>
+                        <div class="col">
+                          <p><a href="mailto:tony@wiltonagencies.com"><span
+                                class="__cf_email__">tony@wiltonagencies.com</span></a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

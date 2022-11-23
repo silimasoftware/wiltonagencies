@@ -1,0 +1,38 @@
+{% extends 'index.html' %} {% block auth %}
+<div class="container">
+  <div class="text-center">
+    <div class="row d-flex justify-content-center"  style="padding-top: 20vh;padding-bottom: 40vh;">
+      <div class="col-md-4  bg-d1 rounded shadow p-2">
+        {% if blocked %}
+        <div class="justify-content-center p-4 border border-5 rounded border-danger">
+          <div class="text-dark form-after">
+            <h4 class="">Too many failed attempts!</h4>
+            <br>
+            <h5 > Having trouble signing in?</h5>
+            <br>
+            <a class="btn btn-outline-dark p-2" href="{% url 'wiltonagencies' 'contact' %}">Contant Support</a>
+          </div>
+        </div>
+        {% else %}
+        <form id="auth_form" class="form p-4 border bg-lt">
+          {% csrf_token %}
+          <input style="text-align: center" class="form-control text-center p-2 bg-white text-dark" type="email" name="email"
+            placeholder="email" />
+          <br />
+          <input style="text-align: center" class="form-control text-center p-2 bg-white text-dark" type="password"
+            name="password" placeholder="password" />
+          <br />
+          <br />
+          <input style="text-align: center" class="form-control p-2 btn bg-d1 text-light shadow" type="submit" value="Login" />
+        </form>
+        {% endif %}
+      </div>
+      <div class="login-now p-3">
+        <a class="text-dark" href="http://wiltonagencies.localhost/registration/">
+          Don't have an account?
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

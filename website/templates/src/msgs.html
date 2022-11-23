@@ -1,0 +1,11 @@
+{% if messages %} {% for message in messages %}
+<li
+  onmouseover="$(this).addClass('grow')"
+  onmouseleave="$(this).fadeOut(1000)"
+  onmouseenter="$(this).stop().fadeIn(0)"
+  class="alert float-right border border-2 border-{{ message.tags }} alert-{{ message.tags }} alert-dismissible list-group-item fade show p-3 list-group-item shadow"
+  role="alert"
+>
+  <span>{{ message }} </span>
+</li>
+{% endfor %} {% endif %}

@@ -1,0 +1,46 @@
+version: "3"
+
+services:
+  wiltonagencies:
+    build: .
+    image: localhost:5000/wiltonagencies:latest
+    env_file:
+      - .env
+    restart: always
+    command: bash -c "python manage.py makemigrations && python manage.py migrate &&
+      gunicorn config.wsgi:application  -b 0.0.0.0:80"
+    container_name: wiltonagencies
+    volumes:
+      - ./website:/usr/src/app
+ 
+  wiltonagencies_nginx:
+    image: nginx:latest
+    restart: always
+    container_name: wiltonagencies_nginx
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.entrypoints=web"
+      - "traefik.http.routers.wiltonagencies_nginx.rule=Host(`wiltonagencies.localhost`)"
+      - "traefik.http.services.wiltonagencies_nginx.loadbalancer.server.port=80"
+    volumes:
+      - ./website:/usr/src/app
+      - ./nginx:/etc/nginx/conf.d/
+    depends_on:
+      - wiltonagencies
+
+  db-wiltonagencies:
+    image: postgres
+    restart: always
+    container_name: db-wiltonagencies 
+    env_file:
+      - .env
+    volumes:
+      - wiltonagencies_data:/var/lib/postgresql/data
+
+volumes:
+  wiltonagencies_data:
+
+networks:
+  default:
+    external:
+      name: hostnet

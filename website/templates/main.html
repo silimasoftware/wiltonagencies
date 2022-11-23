@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+    Wilton Agencies - {{page_title}}
+  </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <meta property="og:site_name" content="Wilton Agencies" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" property="schema:url" content="https://wiltonagencies.com{{ request.path }}" />
+  <meta property="og:title" content="Wilton Agencies - {{page_title}}" />
+  <meta property="og:description"
+    content="Wilton Agencies is a South African international import and export agency. We find excellent undiscovered products and propel them into the global markets." />
+  <meta name="description"
+    content="Wilton Agencies is a South African international import and export agency. We find excellent undiscovered products and propel them into the global markets." />
+  <meta name="keywords" property="schema:keywords"
+    content="Import, Export, Importing, Exporting, International Trade" />
+  <meta name="author" content="Wilton Agencies" />
+  <meta name="copyright" content="2022 Wilton Agencies" />
+  <meta name="contact" content="webmaster@wiltonagencies.com" />
+  <meta name="publisher" content="Wilton Agencies" />
+  <meta name="robots" content="index,follow" />
+  <meta name="googlebot" content="index,follow" />
+  <meta name="Revisit-After" content="7 Days" />
+  <meta name="Distribution" content="Global" />
+  <meta name="geo.position" content="-33.9550555;25.5848913" />
+  <meta name="geo.country" content="ZA" />
+  <meta name="geo.region" content="ZA-EC" />
+  <meta name="geo.placename" content="Port Elizabeth" />
+  <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bs.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600&amp;subset=latin-ext" rel="stylesheet">
+</head>
+
+<body>
+  <ul id="msg_queue" class="list-group" style="
+                position: fixed;
+                width: fit-content;
+                height: fit-content;
+                top: 69px;
+                right: 10px;
+                z-index: 2;
+              ">
+    {% include 'src/msgs.html' %}
+  </ul>
+  {% block main %}{% endblock %}
+</body>
+<script type="text/javascript" src="{% static 'js/modernizr.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jq.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+<script src="https://kit.fontawesome.com/5834225bd5.js" crossorigin="anonymous"></script>
+{% if javascript %}
+{% for script in javascript %}
+<script type="text/javascript" src="{% static script %}"></script>
+{% endfor %}
+{% endif %}
+
+</html>
