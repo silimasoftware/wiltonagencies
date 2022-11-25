@@ -20,7 +20,7 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path("admin/", admin.site.urls),
+    #path("admin/", admin.site.urls),
     path("", page_loader_view, name="wiltonagencies"),
     path("<slug:page>/", page_loader_view, name="wiltonagencies"),
     path("<slug:page>/<slug:function>/", page_loader_view, name="wiltonagencies"),
