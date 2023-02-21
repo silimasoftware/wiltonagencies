@@ -19,6 +19,25 @@ from .util import (
 from .context import get_context
 
 
+def under_construction_view(request):
+    if is_post(request):
+        return forbidden()
+    if is_get(request):
+        request.context = {
+            "javascript": [
+                f"js/home.js",
+            ],
+        }
+        return render(request, "under_construction.html", request.context)
+
+def contact_view(request):
+    if is_post(request):
+        return forbidden()
+    if is_get(request):
+        return render(request, "contact.html")
+
+
+
 def page_loader_view(request, page="home", function="index"):
     request.page = bleach.clean(page)
     request.function = bleach.clean(function)
@@ -39,7 +58,9 @@ def page_loader_view(request, page="home", function="index"):
                 content_type="application/json",
             )
 
-        return HttpResponse(json.dumps(request.context), content_type="application/json")
+        return HttpResponse(
+            json.dumps(request.context), content_type="application/json"
+        )
 
     if is_get(request):
         try:
@@ -51,11 +72,10 @@ def page_loader_view(request, page="home", function="index"):
         return render(request, "index.html", request.context)
 
 
-
 def page_not_found_view(request, exception):
     messages.error(
-            request,
-            message="Failed to find the page or resource!",
-            extra_tags="warning",
+        request,
+        message="Failed to find the page or resource!",
+        extra_tags="warning",
     )
     return render(request, "index.html", {"template": "src/404.html"}, status=404)

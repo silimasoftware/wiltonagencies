@@ -1,0 +1,62 @@
+{% extends 'main.html' %} {% block main %}
+<div class="bg-img-contact site" id="page">
+  <!-- Options headline effects: .rotate | .slide | .zoom | .push | .clip -->
+  <section class="hero-section hero-section--image clearfix clip">
+    <div class="hero-section__wrap">
+      <div class="container p-2">
+        <div class="text-center">
+          <div class="d-flex text-center align-items-stretch">
+            <div class="info-wrap rounded p-4">
+              <div>
+                <div class="icon d-flex align-items-center justify-content-center p-2">
+                  <span class="fa fa-map-marker"></span>Address
+                </div>
+                <div class="dbox w-100 d-flex align-items-start">
+                  <div class="text pl-3">
+                    <p> 52 Mangold Street Newton Park Gqeberha (Port Elizabeth) Eastern Cape South Africa</p>
+                  </div>
+                </div>
+                <br>
+                <div class="icon p-2">
+                  <span class="fa fa-phone"></span>
+                  Contact
+                </div>
+                <div class="text pl-4">
+                  <div class="row">
+                    <div class="col">
+                      <p><span>Wil:</span> <a href="tel://+27828155834">+27 82 815 5834</a></p>
+                    </div>
+                    <div class="col">
+                      <p><span>Tony:</span> <a href="tel://+27828155834">+27 82 800 9169</a></p>
+                    </div>
+                  </div>
+                </div>
+                <br>
+                <div class="">
+                  <div class="icon p-2">
+                    <span class="fa fa-paper-plane"></span>
+                    Email
+                  </div>
+                  <div class="text pl-3">
+                    <div class="row">
+                      <div class="col">
+                        <p><a href="mailto:will@wiltonagencies.com"><span
+                              class="__cf_email__">will@wiltonagencies.com</span></a></p>
+                      </div>
+                      <div class="col">
+                        <p><a href="mailto:tony@wiltonagencies.com"><span
+                              class="__cf_email__">tony@wiltonagencies.com</span></a></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% include "src/footer.html" %}
+{% endblock %}
