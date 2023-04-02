@@ -5,7 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'docker compose -f production.yml down'
-                sh 'docker volume rm  wiltonagencies_website_data'
                 sh 'docker compose -f production.yml build --no-cache'
             }
         }
