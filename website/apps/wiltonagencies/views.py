@@ -19,22 +19,22 @@ from .util import (
 from .context import get_context
 
 
-def under_construction_view(request):
-    if is_post(request):
-        return forbidden()
-    if is_get(request):
-        request.context = {
-            "javascript": [
-                f"js/home.js",
-            ],
-        }
-        return render(request, "under_construction.html", request.context)
+# def under_construction_view(request):
+#     if is_post(request):
+#         return forbidden()
+#     if is_get(request):
+#         request.context = {
+#             "javascript": [
+#                 f"js/home.js",
+#             ],
+#         }
+#         return render(request, "under_construction.html", request.context)
 
-def contact_view(request):
-    if is_post(request):
-        return forbidden()
-    if is_get(request):
-        return render(request, "contact.html")
+# def contact_view(request):
+#     if is_post(request):
+#         return forbidden()
+#     if is_get(request):
+#         return render(request, "contact.html")
 
 
 

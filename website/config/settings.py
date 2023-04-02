@@ -30,7 +30,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sites",
     "django.contrib.sitemaps",
+    # extras
     "crispy_forms",
+    "phone_field",
+    "django_countries",
+    # website
     "wiltonagencies",
 ]
 
