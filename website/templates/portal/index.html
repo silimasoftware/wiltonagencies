@@ -1,0 +1,6 @@
+{% extends './menu.html' %}
+{% block content-module %}
+{% if module_path %}
+<div id="module_wrapper">{% include module_path %}</div>
+{% endif %}
+{% endblock %}

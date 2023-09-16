@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>{{ user.username }}@wilton-backend</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://kit.fontawesome.com/5834225bd5.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.css">
+  {% if css %} {% for script in css %}
+  <link rel="stylesheet" type="text/css" href="{% static script %}" />
+  {% endfor %} {% endif %}
+
+</head>
+
+<body>
+  <ul id="msg_queue" class="list-group" style="
+        position: absolute;
+        width: fit-content;
+        height: fit-content;
+        top: 50px;
+        right: 10px;
+        z-index: 2;
+      ">
+    {% include 'src/msgs.html' %}
+  </ul>
+  {% block content-main %}{% endblock %}
+</body>
+
+{% if javascript %} {% for script in javascript %}
+<script type="text/javascript" src="{% static script %}"></script>
+{% endfor %}
+{% endif %}
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.js"></script>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'backend.html' %} {% load static %} {% block content-main %}
+
+<!-- main nav   <img style="position: inherent;" type="image/svg" src="{% static 'svg/logo-nav.svg' %}" /> -->
+<nav class="navbar navbar-expand-sm p-1">
+  <div class="mx-auto btn-group" id="main_menu">
+    <a class="btn btn-outline-light 
+    {% if not current_page %} nav_active {% endif %}" href="{% url "portal" %}">
+      <i class="fa-solid fa-gauge"></i></a>
+    {% for page in main_nav %}
+    <a href="{% url "portal" page.link %}" type="button" class="btn btn-outline-light
+          {% if page.link in request.path %}bg-light text-dark{% endif %}">
+      {{page.name}}
+    </a>
+    {% endfor %}
+  </div>
+  <a class="nav-link text-light" href="javascript:{document.getElementById('logout').submit()}"><i
+      class="fas fa-sign-out-alt"></i></a>
+  <form id="logout" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <input type="hidden" />
+  </form>
+</nav>
+
+<!-- module nav -->
+<nav class="navbar navbar-expand-sm p-0">
+  <div class="mx-auto btn-group" id="module_menu">
+    {% for page in module_nav %}
+    <a href="{% url "portal" module page.link %}" type="button" class="btn btn-outline-light
+      {% if page.link in request.path %}bg-light text-dark{% endif %}">
+      {{page.name}}
+    </a>
+    {% endfor %}
+  </div>
+</nav>
+<br>
+<div class="sticky-top">
+  <breadcrumb <div class="bg-light text-dark text-center">
+    {% if module and module != 'core' %}
+    <i class="fa-solid fa-chevron-right"></i>
+    {% if current_page == module %}
+    <span>{{module}}</span>
+    {% else %}
+    <a href="{% url "portal" module %}">{{module}}</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    {% endif %}
+    {% endif %}
+    {% if function and function != 'default' %}
+    {% if current_page == function %}
+    <span>{{function}}</span>
+    {% else %}
+    <a href="{% url "portal" module function %}">{{function}}</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    {% endif %}
+    {% endif %}
+    {% if page and page != 'index' %}
+    <span>{{page}}</span>
+    {% endif %}
+</div>
+</div>
+<div class="p-0">
+  <div class="container">
+    {% block content-module %} {% endblock %}
+  </div>
+</div>
+{% endblock %}

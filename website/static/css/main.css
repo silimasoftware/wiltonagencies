@@ -106,6 +106,17 @@ a:hover {
   background-color: #031f30;
 }
 
+
+.bg-img-prod-top {
+  background-image: url("../imgs/prod_top.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 900px;
+  background-color: #031f30;
+}
+
+
 li.list-group-item.alert {
   color: #ffffff !important;
   background-color: rgba(0, 0, 0, 0.8) !important;

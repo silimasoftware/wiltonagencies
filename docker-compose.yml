@@ -28,6 +28,21 @@ services:
     depends_on:
       - wiltonagencies
 
+
+  wiltonagencies_db:
+    image: postgres
+    restart: always
+    container_name: wiltonagencies_db 
+    env_file:
+      - .env
+    volumes:
+      - wiltonagencies_db:/var/lib/postgresql/data
+
+
+volumes:
+  wiltonagencies_db:
+
+
 networks:
   default:
     external:

@@ -13,6 +13,8 @@ handler404 = "wiltonagencies.views.page_not_found_view"
 sitemaps = {"wiltonagencies": Home, "about": About, "contact": Contact}
 
 urlpatterns = [
+    path("devmin/", admin.site.urls),
+    path("backend/", include("core.urls")),
     path(
         "sitemap.xml",
         sitemap,

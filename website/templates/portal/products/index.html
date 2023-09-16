@@ -1,0 +1,45 @@
+{% block content-module %}
+
+<div class="btn-group float-right shadow">
+  <button type="button" class="float-right shadow btn btn-outline-light"
+    onclick="load_model('product_form', '0', 'save_product')" title="Add New Product">
+    <i class="fa-solid fa-plus"></i>
+  </button>
+</div>
+
+<table class="table bg-light">
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td>{{ product.country }}
+      </td>
+      <td>{{ product.name }}
+      </td>
+
+      <td>{% for img in product.images %}
+        <img style="width: 64px; height: 64px;" class="img-thumbnail" alt="{{img.name}}" src="{{img.upload.url}}" />
+        {% endfor %}
+      </td>
+      <td>{{ product.description|safe|truncatechars:12 }}
+      </td>
+      <td>
+        <div class="btn-group float-right">
+          <button type="button" class="shadow btn btn-outline-dark"
+            onclick="load_model('product_image_form', '{{product.uid}}', 'new')" title="Add New Images">
+            Add Images
+          </button>
+          <button type="button" class="shadow btn btn-outline-dark"
+            onclick="load_model('edit_product', '{{product.uid}}', 'edit_product')" title="Edit Product Disc">
+            Edit Product
+          </button>
+        </div>
+
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div id="modal_wrapper">
+  {% if modal %} {% include modal %} {% endif %}
+</div>
+{% endblock %}

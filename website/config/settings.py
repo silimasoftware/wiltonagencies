@@ -32,15 +32,23 @@ INSTALLED_APPS = [
     "django.contrib.sitemaps",
     # extras
     "crispy_forms",
+    "crispy_bootstrap5",    
+    "phone_field",
+    "django_countries",
     # website
     "wiltonagencies",
+    # backend stuff
+    "core",
+    "crm",
+    "inventory",
+    "portal",
+    "users",
 ]
 
 SITE_ID = 1
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
 MIDDLEWARE = [
@@ -54,6 +62,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "config.urls"
+AUTH_USER_MODEL = "users.Account"
 
 TEMPLATES = [
     {
@@ -108,7 +117,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
-CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_USE_SSL = True
